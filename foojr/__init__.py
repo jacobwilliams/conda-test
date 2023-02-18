@@ -6,7 +6,7 @@ import ctypes
 import os 
 
 dll_dir = os.path.dirname(__file__)
-lib = ctypes.CDLL(os.path.join(dll_dir,'foo.so'))
+lib = ctypes.CDLL(os.path.join(dll_dir,'foo.dylib'))
 
 # interface:
 foo = lib.foo

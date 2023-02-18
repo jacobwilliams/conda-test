@@ -10,8 +10,8 @@ Testing this on an M1 Mac...
 
 ```
 mkdir outdir
-conda env create --prefix ./outdir/myenv -f ./environment.yml
-conda activate ./outdir/myenv
+conda env create --prefix ./myenv -f ./environment.yml
+conda activate ./myenv
 ```
 
 
