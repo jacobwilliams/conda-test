@@ -16,14 +16,7 @@ conda activate ./myenv
 
 ## How to build
 
-<!-- Need these two packages in your environment:
-```
-conda install -c conda-forge conda-build
-conda install -c conda-forge conda-verify
-conda install -c conda-forge build -->
-```
-
-### Build shared lib:
+### Build shared lib
 
 ```
 gfortran --shared ./src/foojr/foo.f90 -o ./src/foojr/foo.dylib
@@ -53,7 +46,7 @@ conda install ./outdir/osx-arm64/foojr-0.0.1-py39_1.tar.bz2
 
 * wheel can be pip installed, and it works.
 * conda package can be installed, and it works.
-* need to add a shared lib dependency....
+* need to add a shared lib dependency.... can/should the dylib be installed in the conda lib folder rather than with the package?
 
 # References
 
