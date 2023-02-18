@@ -5,6 +5,9 @@ package:
 build:
   number: 1
 
+source:
+  path: ../src
+
 requirements:
   build:
     - python

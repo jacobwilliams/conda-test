@@ -9,7 +9,6 @@ Testing this on an M1 Mac...
 ### make a conda env:
 
 ```
-mkdir outdir
 conda env create --prefix ./myenv -f ./environment.yml
 conda activate ./myenv
 ```
@@ -17,17 +16,17 @@ conda activate ./myenv
 
 ## How to build
 
-Need these two packages in your environment:
+<!-- Need these two packages in your environment:
 ```
 conda install -c conda-forge conda-build
 conda install -c conda-forge conda-verify
-conda install -c conda-forge build
+conda install -c conda-forge build -->
 ```
 
 ### Build shared lib:
 
 ```
-gfortran --shared ./foojr/foo.f90 -o ./foojr/foo.so
+gfortran --shared ./src/foojr/foo.f90 -o ./src/foojr/foo.so
 ```
 
 **TODO** add an MKL dependency or something like that
@@ -35,13 +34,13 @@ gfortran --shared ./foojr/foo.f90 -o ./foojr/foo.so
 ### Build wheel:
 
 ```
-python -m build
+python -m build ./src
 ```
 
 ### Build conda package:
 
 ```
-conda build . --output-folder outdir
+conda build ./conda-recipe --output-folder outdir
 ```
 
 To clean up conda-build process?: `conda build purge`
@@ -53,9 +52,8 @@ conda install ./outdir/osx-arm64/foojr-0.0.1-py39_1.tar.bz2
 # Current status...
 
 * wheel can be pip installed, and it works.
-* conda package can be installed, but the `.so` file isn't being copied over...
-* `foojr-0.0.1-py39_1.tar.bz2` contains an entire conda environment! is that supposed to happen?
-I think it's including everything in the directory, including the environment... need to put that somewhere else... or run from some other directory?
+* conda package can be installed, and it works.
+* need to add a shared lib dependency....
 
 # References
 
