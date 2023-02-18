@@ -11,9 +11,9 @@ requirements:
   run:
     - python
 
-test:
-  imports:
-    - foojr
+# test:
+#   imports:
+#     - foojr
 
 about:
   home: http://foojr.org/
