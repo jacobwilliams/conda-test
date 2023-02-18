@@ -26,7 +26,7 @@ conda install -c conda-forge build -->
 ### Build shared lib:
 
 ```
-gfortran --shared ./src/foojr/foo.f90 -o ./src/foojr/foo.so
+gfortran --shared ./src/foojr/foo.f90 -o ./src/foojr/foo.dylib
 ```
 
 **TODO** add an MKL dependency or something like that
