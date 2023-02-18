@@ -1,0 +1,21 @@
+package:
+  name: foojr
+  version: "0.0.1"
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - foojr
+
+about:
+  home: http://foojr.org/
+  license: Apache 2.0
+  summary: foojr foojr foojr
