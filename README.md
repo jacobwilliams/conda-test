@@ -55,6 +55,7 @@ conda install ./outdir/osx-arm64/foojr-0.0.1-py39_1.tar.bz2
 * wheel can be pip installed, and it works.
 * conda package can be installed, but the `.so` file isn't being copied over...
 * `foojr-0.0.1-py39_1.tar.bz2` contains an entire conda environment! is that supposed to happen?
+I think it's including everything in the directory, including the environment... need to put that somewhere else... or run from some other directory?
 
 # References
 
