@@ -9,10 +9,9 @@ dll_dir = os.path.dirname(__file__)
 lib = ctypes.CDLL(os.path.join(dll_dir,'foo.dylib'))
 
 # interface:
-foo = lib.foo
-foo.argtypes = []
-foo.restype = ctypes.c_int
+lib.foo.argtypes = []
+lib.foo.restype = ctypes.c_int
 
-def main():
+def foo():
     """test routine to call"""
-    return foo()
+    return lib.foo()
