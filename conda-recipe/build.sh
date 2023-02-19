@@ -7,4 +7,4 @@
 
 #... this does work, seems like we should have an env var for src somewhere?
 # (does it work on windows?)
-pip install ${RECIPE_DIR}/../src/dist/foojr-0.0.1-py3-none-any.whl --no-deps
+pip install ${RECIPE_DIR}/../build-output/foojr-0.0.1-py3-none-any.whl --no-deps

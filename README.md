@@ -13,7 +13,6 @@ conda env create --prefix ./myenv -f ./environment.yml
 conda activate ./myenv
 ```
 
-
 ## How to build
 
 ### Build shared lib
@@ -27,28 +26,32 @@ gfortran --shared ./src/foojr/foo.f90 -o ./src/foojr/foo.dylib
 ### Build wheel:
 
 ```
-python -m build ./src
+python -m build ./src --outdir ./build-output 
 ```
 
 ### Build conda package:
 
 ```
-conda build ./conda-recipe --output-folder outdir
+conda build ./conda-recipe --output-folder conda-output
 ```
 
 To clean up conda-build process?: `conda build purge`
 
+### install the conda package:
+
 ```
-conda install ./outdir/osx-arm64/foojr-0.0.1-py39_1.tar.bz2
+conda activate ./myenv
+conda install ./conda-output/osx-arm64/foojr-0.0.1-py39_1.tar.bz2
 ```
 
 # Current status...
 
 * wheel can be pip installed, and it works.
 * conda package can be installed, and it works.
-* need to add a shared lib dependency.... can/should the dylib be installed in the conda lib folder rather than with the package?
+* need to add a shared lib dependency.... can/should the dylib be installed in the conda lib folder rather than with the package? Test on Linux to make sure the rpath magic is happening.
+* stupid `foojr.egg-info` folder is generated in the `src` folder. can that be put in a build directory?
 
-This is what ends up in the `outdir`:
+This is what ends up in the `conda-output`:
 
 ```
 ├── channeldata.json
