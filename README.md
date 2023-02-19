@@ -48,6 +48,64 @@ conda install ./outdir/osx-arm64/foojr-0.0.1-py39_1.tar.bz2
 * conda package can be installed, and it works.
 * need to add a shared lib dependency.... can/should the dylib be installed in the conda lib folder rather than with the package?
 
+This is what ends up in the `outdir`:
+
+```
+├── channeldata.json
+├── icons
+├── index.html
+├── noarch
+│   ├── current_repodata.json
+│   ├── current_repodata.json.bz2
+│   ├── index.html
+│   ├── repodata.json
+│   ├── repodata.json.bz2
+│   ├── repodata_from_packages.json
+│   └── repodata_from_packages.json.bz2
+└── osx-arm64
+    ├── current_repodata.json
+    ├── current_repodata.json.bz2
+    ├── foojr-0.0.1-py39_1.tar.bz2
+    ├── index.html
+    ├── repodata.json
+    ├── repodata.json.bz2
+    ├── repodata_from_packages.json
+    └── repodata_from_packages.json.bz2
+```
+
+Inside of `foojr-0.0.1-py39_1.tar.bz2`, we have:
+
+```
+├── info
+│   ├── about.json
+│   ├── files
+│   ├── git
+│   ├── hash_input.json
+│   ├── index.json
+│   ├── paths.json
+│   └── recipe
+│       ├── build.sh
+│       ├── conda_build_config.yaml
+│       ├── meta.yaml
+│       └── meta.yaml.template
+└── lib
+    └── python3.9
+        └── site-packages
+            ├── foojr
+            │   ├── __init__.py
+            │   ├── __pycache__
+            │   │   └── __init__.cpython-39.pyc
+            │   └── foo.dylib
+            └── foojr-0.0.1.dist-info
+                ├── INSTALLER
+                ├── METADATA
+                ├── RECORD
+                ├── REQUESTED
+                ├── WHEEL
+                ├── direct_url.json
+                └── top_level.txt
+```
+
 # References
 
 * [Managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)
